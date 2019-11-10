@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { ProductItem } from './product-item'
+import { ExactProduct } from './product-item'
 import totalWeight from './total-weight'
 import totalNumber from './total-number'
 import totalColor from './total-color'
@@ -14,8 +14,8 @@ axios({
     url: '/api/list'
 })
     .then((response) => {
-        ProductItem.rofl()
-        const list = response.data.map((item) => new ProductItem(item))
+        ExactProduct.rofl()
+        const list = response.data.map((item) => new ExactProduct(item))
         return Promise.resolve(list)
     })
     .then((list) => {

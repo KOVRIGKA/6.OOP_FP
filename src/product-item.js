@@ -1,17 +1,11 @@
-export class ProductItem {
+class ProductItem {
     constructor (item) {
         ProductItem.TOTAL_ITEMS += 1
 
         this.id = item.id
         this.params = item.params
-        this.title = item.title
-        this.costs = item.costs
         this.inTrash = false
-
-        // На самом деле это обычно реализует через getter
-        this.costsPerItem = this.costs / this.params.count
     }
-
     sendToTrash () {
         this.inTrash = true
     }
@@ -21,4 +15,18 @@ export class ProductItem {
     }
 }
 
-ProductItem.TOTAL_ITEMS = 0
+ProductItem.TOTAL_ITEMS=0
+
+export class ExactProduct extends ProductItem {
+    constructor (item) {
+        super(item)
+        this.title = item.title
+        this.cost = item.costs / item.params.count
+        this.weight = (item.params.weight / item.params.count).toFixed(1)
+    }
+
+    static err (){
+        console.log('err')
+    }
+    
+}
