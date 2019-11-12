@@ -14,7 +14,6 @@ axios({
     url: '/api/list'
 })
     .then((response) => {
-        ExactProduct.rofl()
         const list = response.data.map((item) => new ExactProduct(item))
         return Promise.resolve(list)
     })
@@ -35,7 +34,7 @@ axios({
             `<dt>Стоимость каждого наименования в корзине</dt>` +
             `<dd class=${style.term}>${getCost(list)} руб</dd>` +
             `<dt>Вес каждого продукта в корзине</dt>` +
-            `<dd class=${style.term}>${getWeight(list)} кг</dd>` +
+            `<dd class=${style.term}>${getWeight(list)} кг</dd>`
             // TODO: перенести в парсеры и сделать в виде ФП
         document.body.appendChild(statisticsNode)
     })
