@@ -18,11 +18,9 @@ axios({
         return Promise.resolve(list)
     })
     .then((list) => {
-        // Работа со списком параметров корзины
+        //ФП
         const statisticsNode = document.createElement('dl')
         statisticsNode.classList.add(style.statistics)
-
-        // Суммарный вес потребительской корзины
         statisticsNode.innerHTML = `<dt>Количество наименований в корзине</dt>` +
             `<dd class=${style.term}>${getNumber(list)} шт</dd>` +
             `<dt> Количество продуктов в корзине</dt>` +
@@ -35,7 +33,6 @@ axios({
             `<dd class=${style.term}>${getCost(list)} руб</dd>` +
             `<dt>Вес каждого продукта в корзине</dt>` +
             `<dd class=${style.term}>${getWeight(list)} кг</dd>`
-            // TODO: перенести в парсеры и сделать в виде ФП
         document.body.appendChild(statisticsNode)
     })
     .catch(() => {
